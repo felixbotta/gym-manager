@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card">
+    <section
+            class="avatar"
+            style="background: url({{ members.url }}) no-repeat center center / cover">
+    </section>
+    <section class="details">
+        <form method="POST" action="{% url 'members:update' members.id %}">
+            <h3>Editar Membro</h3>
+
+            {% csrf_token %}
+            {{ errors }}
+
+            <div class="item">
+                <div>Foto</div>
+                <div>{{ form.url }}</div>
+            </div>
+
+            <div class="item">
+                <div>Nome</div>
+                <div>{{ form.name }}</div>
+            </div>
+
+            <div class="item">
+                <div>E-mail</div>
+                <div>{{ form.email }}</div>
+            </div>
+
+            <div class="item">
+                <div>Data de Nascimento</div>
+                <div>{{ form.birth }}</div>
+            </div>
+
+            <div class="item">
+                <div>Sexo</div>
+                <div>{{ form.gender }}</div>
+            </div>
+
+            <div class="item">
+                <div>Peso (kg)</div>
+                <div>{{ form.weight }}</div>
+            </div>
+
+            <div class="item">
+                <div>Altura (cm)</div>
+                <div>{{ form.height }}</div>
+            </div>
+
+            <div class="item">
+                <div>Escolha seu Instrutor</div>
+                <div>{{ form.instructor }}</div>
+            </div>
+
+            <button type="submit">Salvar</button>
+        </form>
+
+        {% if members %}
+        <form id="form-delete" action="{% url 'members:delete' members.id %}">
+            <button type="submit">Deletar</button>
+        </form>
+        {% endif %}
+
+    </section>
+</div>
+
+{% endblock %}

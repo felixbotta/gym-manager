@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card">
+    <section
+            class="avatar"
+            style="background: url({{ instructors.url }}) no-repeat center center / cover">
+    </section>
+    <section class="details">
+        <form method="POST" action="{% url 'instructors:update' instructors.id %}">
+            <h3>Editar Instrutor</h3>
+
+            {% csrf_token %}
+            {{ errors }}
+
+            <div class="item">
+                <div>Foto</div>
+                <div>{{ form.url }}</div>
+            </div>
+
+            <div class="item">
+                <div>Instrutor</div>
+                <div>{{ form.name }}</div>
+            </div>
+
+            <div class="item">
+                <div>Data de Nascimento</div>
+                <div>{{ form.age }}</div>
+            </div>
+
+            <div class="item">
+                <div>Sexo</div>
+                <div>{{ form.gender }}</div>
+            </div>
+
+            <div class="item">
+                <div>Acompanhamento</div>
+                <div>{{ form.services }}</div>
+            </div>
+
+            <button type="submit">Salvar</button>
+        </form>
+
+        {% if instructors %}
+        <form id="form-delete" action="{% url 'instructors:delete' instructors.id %}">
+            <button type="submit">Deletar</button>
+        </form>
+        {% endif %}
+
+    </section>
+</div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gym Manager</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+<header>
+    <div class="links">
+        <a href="{% url 'instructors:list' %}">Instrutores</a>
+        <a href="{% url 'members:list' %}">Membros</a>
+    </div>
+</header>
+
+{% block content %} {% endblock %}
+
+<script src="/core/static/scripts/scripts.js"></script>
+
+</body>
+</html>

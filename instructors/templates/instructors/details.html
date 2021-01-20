@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card">
+    <section
+            class="avatar"
+            style="background: url({{ instructors.url }}) no-repeat center center / cover"></section>
+
+    <section class="details">
+
+        <h3>Detalhes</h3>
+
+        <div class="item">
+            <div>Instrutor</div>
+            <div>{{ instructors.name }}</div>
+        </div>
+
+        <div class="item">
+            <div>Data de Nascimento</div>
+            <div>{{ instructors.age }}</div>
+        </div>
+
+        <div class="item">
+            <div>Sexo</div>
+            <div>{{ instructors.gender }}</div>
+        </div>
+
+        <div class="item">
+            <div>Acompanhamento</div>
+            <div>
+                <span>{{ instructors.services }}</span>
+            </div>
+        </div>
+
+        <div class="item">
+            <div>Desde</div>
+            <div> {{instructors.created_at}}  </div>
+        </div>
+
+        <div class="item">
+            <form action="{% url 'instructors:update' instructors.id %}">
+                <button type="submit">Editar</button>
+        </div>
+    </section>
+</div>
+
+{% endblock %}

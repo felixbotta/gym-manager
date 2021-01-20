@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card">
+    <section class="avatar" style="background: url({{ members.url }}) no-repeat center center / cover"></section>
+
+    <section class="details">
+
+        <h3>Detalhes</h3>
+
+        <div class="item">
+            <div>Nome</div>
+            <div>{{ members.name }}</div>
+        </div>
+
+        <div class="item">
+            <div>E-mail</div>
+            <div>{{ members.email }}</div>
+        </div>
+
+        <div class="item">
+            <div>Data de Nascimento</div>
+            <div>{{ members.birth }}</div>
+        </div>
+
+        <div class="item">
+            <div>Sexo</div>
+            <div>{{ members.gender }}</div>
+        </div>
+
+        <div class="item">
+            <div>Peso</div>
+            <div> {{members.weight}} </div>
+        </div>
+
+        <div class="item">
+            <div>Altura</div>
+            <div> {{members.height}} </div>
+        </div>
+
+        <div class="item">
+            <div>Instrutor</div>
+            <div> {{members.instructor}} </div>
+        </div>
+
+        <div class="item">
+            <form action="{% url 'members:update' members.id %}">
+                <button type="submit">Editar</button>
+        </div>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="delete">
+    <h4>Você tem certeza que deseja deletar o instrutor {{ instructors.name }}</h4>
+    <div class="confirm">
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Sim</button>
+        </form>
+        <form action="{% url 'instructors:list' %}">
+            {% csrf_token %}
+            <button type="submit">Não</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
